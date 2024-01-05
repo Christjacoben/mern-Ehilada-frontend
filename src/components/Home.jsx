@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import { Link } from "react-router-dom";
 import style from "../assets/styles.png";
 
 function Home() {
@@ -8,9 +9,9 @@ function Home() {
       <nav className="navBar">
         <ul className="ulStyle">
           <li className="liStyle">
-            <a href="/login" className="linkStyle">
+            <Link to="/login" className="linkStyle">
               Login
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
