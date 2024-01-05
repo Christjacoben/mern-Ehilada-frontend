@@ -1,0 +1,100 @@
+.grade{
+    display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+
+}
+
+
+.grade-container{
+    grid-area: 2 / 2 / 5 / 5;
+    margin-top: 1%;
+   width: 100%;
+   padding: 2%;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.activity-data p {
+    margin-bottom: 2% !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-style: normal !important;
+    font-size: 14px;
+  }
+  .grade-container ul {
+    font-size: 14px;
+    font-style: normal;
+    font-family: "Times New Roman", Times, serif !important;
+  }
+  h2{
+    font-size:20px;
+    font-style: normal;
+  }
+.closeMe {
+    float: right;
+    margin-top: 2%;
+    border-radius: 20px;
+    width: 12%;
+    padding: 1.2%;
+    font-size: small;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: background-color 0.3s ease;
+}
+
+.closeMe:hover {
+    background-color: #0056b3;
+  }
+  .grade img {
+    margin-top: 3%;
+    width: 60%;
+  }
+.grade-container h2 {
+  margin-left: 1%;
+}
+.answers{
+  margin-top: 1%;
+  color: green !important;
+}
+.score{
+  margin-top: -4%;
+  color: red !important;
+}
+.QE{
+  font-style: italic !important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.activityAsignment{
+  font-style: italic !important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.point{
+  color: green !important;
+}
+
+  @media only screen and (max-width: 600px) {
+    
+    .grade-container{
+      width: 130%;
+      margin-left: -25% !important;
+      padding: 11%;
+    }
+    .closeMe{
+      margin-top: 10% !important;
+      width: 20%;
+      padding: 2%;
+    }
+    .QE{
+      font-size: medium;
+    }
+    .activityAsignment{
+      font-size: medium;
+    }
+    .grade img{
+      margin-top: 15%;
+      width: 140%;
+    }
+  }

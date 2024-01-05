@@ -1,0 +1,128 @@
+/* Signup.css */
+*{
+background-color:#ffffff;
+}
+.signup-form {
+  background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: rgba(50,50,93,0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-top: 30px;
+    transition: box-shadow 0.3s ease;
+  }
+  .signup-form:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+
+  .signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+ 
+  }
+
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border:none;
+    border-radius: 5px;
+   
+  }
+  
+  div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-style: italic;
+    margin-left: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    font-size: 16px;
+   
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
+  border-color: #007bff;
+
+}
+  
+  button {
+    background-color:#007cb9;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 95%;
+    margin-left:15px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #5f6769;
+  }
+  .admin-checkbox{
+    margin-top: -6% !important;
+    margin-right: 40% !important;
+  }
+  /* Optional: Add some media query to adjust the form on smaller screens */
+  @media screen and (max-width: 480px) {
+    form {
+      max-width: 100%;
+    }
+  }
+  .show-password-checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  
+  }
+  
+  .show-password-checkbox label {
+    margin-top: 2px;
+    margin-left: 4px;
+    font-style: italic;
+    font-size: smaller;
+  }
+  .already-account {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-right: 60px;
+    margin-left: 30px;
+  }
+  
+  .already-account a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .already-account a:hover {
+    text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .signup-form{
+      max-width: 70%;
+     
+    }
+  }

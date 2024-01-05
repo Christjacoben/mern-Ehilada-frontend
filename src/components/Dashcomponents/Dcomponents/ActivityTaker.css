@@ -1,0 +1,94 @@
+/* ActivityTaker.css */
+.activity-taker-container1 {
+  margin-top: 8%;
+  margin-left: -4% !important;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: stretch;
+    float: left;
+    max-width: 600px;
+    width: 40%;
+    margin-left: -1%;
+    padding: 20px;
+    padding-left: -2%;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  .activity-taker-container2{
+    margin-right: 5% !important;
+    margin-top: 8%;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
+     float: right;
+      max-width: 600px;
+      width: 40%;
+      margin-left: -1%;
+      padding: 20px;
+      padding-left: 3%;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  .activity-title {
+    font-size: 24px;
+    margin-top: 1%;
+    margin-bottom: 10px;
+  }
+  
+  .activity-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .activity-info > div {
+    margin-bottom: 10px;
+  }
+  
+  .activity-info h4 {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .activity-info a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .activity-info a:hover {
+    text-decoration: underline;
+  }
+  textarea:disabled, input[type="text"]:disabled, input[type="file"]:disabled {
+    background-color: #f1f1f1; 
+    color: #666; 
+    cursor: not-allowed; 
+    border: 1px solid #ccc; 
+  }
+  .mark-as-done-button{
+    border-radius: 20px;
+    float: right;
+    width: 20%;
+  }
+  .logoact{
+    width: 10%;
+  float: left;
+  }
+  @media only screen and (max-width: 600px) {
+    .activity-taker-container1 {
+      margin-left: 7% !important;
+     margin-top: 10%;
+     width: 75%;
+    }
+    .activity-taker-container2 {
+      margin-top: 1%;
+      margin-right: 6.5% !important;
+      width: 79%; 
+    }
+    .mark-as-done-button {
+      width: 25%;
+      padding: 2%;
+    }    
+    .logoact{
+      margin-top: 3%;
+      width: 30%;
+    }
+  }

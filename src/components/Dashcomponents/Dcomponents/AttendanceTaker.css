@@ -1,0 +1,146 @@
+.att-container {
+  display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+
+.attendance-container {
+  grid-area: 2 / 2 / 5 / 5;
+  margin-top: -10% !important;
+    text-align: center;
+    max-width: 400px;
+    margin: 45px;
+    margin-left: 34%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button-container {
+    margin-left: 10px;
+  }
+  
+  .button-container button {
+    margin-top: 10%;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 20px !important;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  ul.student-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .student-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+  
+  .student-name {
+    flex: 1;
+    margin-left: 20px;
+    white-space: nowrap; /* Prevent name from wrapping to the next line */
+
+  text-overflow: ellipsis; 
+  }
+  
+  .attendance-status {
+    font-weight: bold;
+    margin: 0 17px;
+    color: #333;
+  }
+  
+  .remove {
+    background-color: #FF4500;
+    margin-top: 2px;
+    color: #fff;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70px; /* Add a fixed width to the button */
+  height: 30px; /* Add a fixed height to the button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .submission {
+    background-color: none;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+  }
+.subAtten {
+  width: 23% !important;
+  float: right;
+  border-radius: 20px;
+  background-color: #007cb9;
+  transition: background-color 0.3s;
+}
+.subAtten:hover {
+  background-color: #3841e5;
+}
+.att-container img {
+  margin-top: 6%;
+  width: 60%;
+}
+.present{
+  color: green;
+}    
+@media only screen and (max-width: 600px) {
+  .input-container input{
+    font-size: small !important;
+  }
+  .submision p {
+    font-size: 20px !important;
+  }
+  .subAtten{
+    width: 27% !important;
+  }
+  .attendance-container {
+    margin-top: -40% !important;
+  }
+  .attendance-container h3 {
+    font-size: 20px;
+  }
+  .attendance-container p {
+    font-size: 19px;
+  }
+  .att-container img {
+    width: 140% !important;
+  }
+}

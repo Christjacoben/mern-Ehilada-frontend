@@ -1,0 +1,316 @@
+/* DashHeader.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: rgb(31, 28, 28);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  width: 100%;
+  height: 52px;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  margin-right: 150px;
+}
+
+.menu-icon {
+  margin-right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.side-menu {
+  width: 0;
+  height: 100%;
+  background-color: none;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.side-menu.open {
+  width: 250px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  margin-top: 500px;
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: rgb(15, 14, 14);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #9b9696;
+}
+
+.logo-side-menu {
+  text-align: center;
+  padding: 1px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.logo-img {
+  max-width: 100px; /* Adjust the size as needed */
+  height: 50px;
+  margin-left: 10% !important;
+}
+
+.logo-nav {
+  height: 60px;
+  margin-top: 20px;
+}
+
+.plus-button {
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 60px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;/* Add a transition for smooth effect */
+  z-index: 1000;
+ 
+   
+}
+
+.plus-button.active {
+  transform: rotate(45deg); /* Rotate the plus button on click */
+}
+
+.create-join-option {
+  padding: 10px;
+  display: none;
+  position: absolute;
+  top: 600%;
+  right: 12%;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.plus-button.active ~ .create-join-option {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.close-dropdown-btn {
+  position: absolute;
+  top: 0px;
+  left: 40%;
+  font-size: 18px;
+  color: #0f0d0d;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.close-dropdown-btn:hover{
+  background-color: transparent;
+}
+.created-classes h3 {
+  font-size: 14px !important;
+}
+.create-class-btn,
+.join-class-btn {
+  padding:10px;
+  margin: 15px;
+  border: none;
+  background-color: rgb(253, 253, 253);
+  
+  color: inherit;
+  border-radius: 5px;
+ 
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: 400ms linear;
+}
+.create-class-btn:hover,
+.join-class-btn:hover {
+  transform: scale(1.1);
+  background-color:white; /* Set the hover background color to transparent */
+  color: #0a0a0a; /* Set the hover text color */
+}
+
+/* Responsive styles for screens up to 768px */
+@media screen and (max-width: 600px) {
+  .navbar {
+    padding: 10px 10px; /* Adjust padding for smaller screens */
+  }
+
+  .logo {
+    margin-right: 10px; /* Reduce right margin for smaller screens */
+  }
+
+  .menu-icon {
+    margin-right: 10px; /* Reduce right margin for smaller screens */
+  }
+
+  .side-menu {
+    width: 0; 
+    overflow-x: hidden;/* Adjust the width for smaller screens */
+  }
+
+  .close-btn {
+    top: 5px;
+    right: 5px; /* Adjust close button position for smaller screens */
+  }
+
+  .logout-btn {
+    margin-top:260%; /* Adjust margin for smaller screens */
+  }
+
+  .logo-side-menu {
+    margin-top: 10px; /* Adjust top margin for smaller screens */
+  }
+
+  .logo-img {
+    max-width: 80px; /* Reduce max-width for smaller screens */
+    height: 40px; /* Adjust height for smaller screens */
+  }
+
+  .plus-button {
+    
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+  }
+
+  .create-join-option {
+   
+    top: 700%; /* Adjust top position for smaller screens */
+    right: 15%; /* Adjust right position for smaller screens */
+    z-index: 1000;
+  }
+
+  .close-dropdown-btn {
+    top: 0px;
+    left: 40%; /* Adjust close dropdown button position for smaller screens */
+  }
+
+  .create-class-btn,
+  .join-class-btn {
+    margin: 10px;
+    font-size: 12px; /* Adjust margin and font size for smaller screens */
+  }
+
+  .created-classes {
+    top: 100px; /* Adjust top position for smaller screens */
+    left: 10px; /* Adjust left position for smaller screens */
+    width: calc(100% - 20px);
+    z-index: 999;
+  }
+
+  .class-card {
+    flex: 0 0 calc(33.33% - 12px); /* Display 3 cards per row for smaller screens */
+    min-width: 80px; /* Adjust minimum width for smaller screens */
+    margin-right: 10px;
+    margin-bottom: 10px; /* Adjust margins for smaller screens */
+  }
+
+  .sec {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+  .navbar img {
+    margin-top: 18%;
+    margin-left: -20%;
+  }
+  
+}
+
+
+.created-classes {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  align-items: flex-start; /* Align cards to the top of the container */
+  position: absolute;
+  top: 120px; /* Adjust the top position based on your design */
+  left: 20px; /* Adjust the left position based on your design */
+  width: calc(100% - 40px); /* Adjust the width to account for left and right padding */
+  max-width: 100%; 
+  z-index: 2;
+
+}
+
+
+.class-card {
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 16px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  flex: 0 0 calc(16.66% - 12px); /* Display 6 cards per row */
+  min-width: 100px;
+ 
+
+
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    font-size: 10px;
+    margin-bottom: 8px;
+    
+  }
+
+  p {
+    font-size: 14px;
+    color: #666;
+  }
+}
+.sec{
+  font-family: Arial, Helvetica, sans-serif ;
+text-decoration: none;
+color: #1347a2;
+}
+
+
+
+
+

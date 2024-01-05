@@ -1,0 +1,121 @@
+/* Teacherdash.css */
+
+.teacher-dash-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color:none;
+    padding: 1px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.tnavbar {
+    justify-content: space-around;
+    list-style-type: none;
+    height: 20px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    background-color: none;
+}
+
+.nav-item {
+   margin-top: 10px;
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+.nav-item a {
+    
+    margin-left: 40%;
+    text-decoration: none;
+    color:#2c2d34;
+    font-weight: bold;
+    font-size: 18px; 
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-item a:hover {
+    color:#d65a31;
+}
+
+.nav-item a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #393e46;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-item a:hover::before {
+    transform: scaleX(1);
+}
+
+
+.home {
+    margin-top: 20px;
+  
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home svg {   
+    margin-left: 40%;
+    font-size: 28px; /* Adjust size as needed */
+    fill: #060707; /* Adjust color as needed */
+    cursor: pointer; /* Add cursor pointer for interaction */
+}
+
+/* Remove default focus outline */
+.home svg:focus {
+    outline: none;
+}
+.user-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+     position: relative;
+}
+
+.user-avatar {
+    margin-left: 30px;
+    width: 30px; /* Adjust avatar size */
+    height: 30px;
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    margin-bottom: 5px; /* Add spacing below avatar */
+    background-color: #f0f0f0; /* Add a background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px 0px; /* Add a subtle shadow */
+}
+
+.user-icon {
+    background-color: transparent;
+    width: 50%; /* Adjust icon size */
+    height: auto;
+    object-fit: contain;
+}
+
+.user-name {
+    margin-left: 30px;
+    color: #2c2d34;
+    font-weight: bold;
+    font-size: 12px;
+}

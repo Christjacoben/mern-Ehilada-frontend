@@ -1,0 +1,147 @@
+/* Admin.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* User Data Styles */
+  
+  .user-data {
+    margin-top: 3%;
+    background-color: #fff;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .user-data h2 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #656667;
+    color: #fff;
+  }
+  
+  td button {
+   font-size: medium;
+    background-color: #d9b650;
+    color: #fff;
+    border: none;
+    padding: 10px 2px;
+    width: 30%;
+    cursor: pointer;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border-radius: 20px;
+  }
+  
+  td button:hover {
+    background-color: #83580b;
+  }
+  
+  /* Class List Styles */
+  
+  .class-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .class-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+  }
+  
+  .class-card h2 {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 15px;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .class-card-content {
+    padding: 20px;
+  }
+  
+  .class-card button {
+   margin-left: 4% !important;
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .class-card button:hover {
+    background-color: #d35400;
+  }
+  .nav{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+   
+    width: 100%;
+    padding: -2% !important;
+ 
+    
+  }
+ .icon1 {
+   
+    
+      margin-left: 18% !important;
+    margin-top: 2% !important;
+    width: 10%;
+    font-size: 150%;
+ }
+ .icon2 {
+ 
+    
+    margin-left:-3% !important;
+    margin-top: -1% !important;
+    width: 10%;
+    font-size: 150%;
+ }
+ .logout {
+    margin-left:20% !important;
+    float: right;
+    margin-top: 2%;
+    width: 10%;
+    font-size: 150%;
+ }
+ .admin {
+
+    margin-top: -4%;
+   
+    width: 12%;
+    padding: 2%;
+ }

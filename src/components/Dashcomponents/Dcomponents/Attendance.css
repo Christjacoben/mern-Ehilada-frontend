@@ -1,0 +1,100 @@
+/* Attendance.css */
+.attendance {
+  display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+.attendance-container {
+  grid-area: 2 / 2 / 5 / 5;
+  margin-top: -2% !important;
+  margin-left: 25% !important;
+  background-color: white !important;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset !important;
+  width:100%;
+  padding: 3% !important;
+
+ 
+}
+
+.attendance-title {
+  font-size: 22px;
+  margin-top: 1%;
+  margin-bottom: 11%;
+  color: #333;
+}
+
+.input-container {
+  margin-bottom: 15px;
+
+}
+.input-field1{
+  margin-left: 5%;
+  width: 90% !important;
+}
+
+
+.input-label {
+margin-right: 60%;
+  font-size: 16px;
+  margin-bottom: 4%;
+  color: #555;
+}
+
+.input-field {
+  margin-left: 5%;
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submit-button {
+  margin-top: 10%;
+  background-color: #007bff !important;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-right: -1% !important;
+  width: 100% !important;
+  padding: 3% !important;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important; 
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3 !important;
+}
+.attendance img {
+  width: 60%;
+}
+@media only screen and (max-width: 600px) {
+  .attendance-container{
+    margin-top: 5% !important;
+    width: 135%;
+    padding: 10% !important;
+    margin-left: -25% !important;
+  }
+  .input-label {
+    font-size: smaller;
+  }
+  .input-field{
+    margin-left: 1%;
+  }
+  .input-field1 {
+    margin-left: 1%;
+  }
+  .submit-button {
+    margin-top: 10% !important;
+  }
+  .attendance img {
+    margin-top: 5%;
+    width: 140%;
+  }
+}

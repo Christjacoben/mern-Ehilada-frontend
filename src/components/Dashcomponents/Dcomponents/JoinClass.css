@@ -1,0 +1,52 @@
+.container {
+    position: absolute;
+    top: 200px;
+    left: 35%;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    border-radius: 4px;
+    padding: 20px;
+    width: 300px;
+    z-index: 1002;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cod {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .ask {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .container{
+      top: 150%;
+      padding: 30px;
+      width: 200px;
+      left: 18%;
+      z-index: 1008;
+    }
+  }

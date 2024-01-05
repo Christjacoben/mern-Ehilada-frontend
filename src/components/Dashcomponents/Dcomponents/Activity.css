@@ -1,0 +1,162 @@
+.activity-container {
+    width: 65%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity-container h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .activity-container .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .activity-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .activity-container textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  .activity-container input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+
+  .activity-page {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .points-container {
+    margin-top: 1%;
+    width: 30%; /* Adjusted width for points container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin-left: 1%;
+  }
+  
+  .points-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .points-container input,
+  .points-container input[type="datetime-local"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .activity-container {
+    margin-top: 1%;
+    width: 65%; /* Adjusted width for activity container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  }
+  
+  .activity-container h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .activity-container .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .activity-container .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .activity-container .input-group input[type="text"],
+  .activity-container .input-group textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .submit-button{
+    margin-top: 90%;
+    padding: 3% !important;
+    width: 40%;
+    float: right;
+    margin-right: -4%;
+    border-radius: 20px !important;
+    background-color: #3a4750 !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    transition: background-color 0.3s ease;
+  }
+  .submit-button:hover {
+    background-color: #222831 !important; 
+}
+
+.navAct img {
+  width: 10%;
+}
+@media only screen and (max-width: 600px) {
+  .navAct {
+    margin-top: 5%;
+    margin-right: 30%;
+    width: 50%;
+    padding: 1%;
+  }
+  .navAct img{
+    width: 60%;
+  }
+  .activity-container{
+    margin-top: 10%;
+    grid-area: 1 / 1 / 3 / 6;
+    margin-left: 6%;
+    width: 80%;
+  }
+  .points-container{
+    grid-area: 3 / 1 / 5 / 6;
+    margin-left: 15%;
+    width: 80%;
+    margin-left: 6%;
+    
+  }
+  .activity-page{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  .submit-button{
+    margin-top: 60% !important;
+  }
+  .points-container label {
+    margin-top: 10%;
+  }
+}
