@@ -18,7 +18,7 @@ import Home from "./components/Home";
 
 function App() {
   return (
-    <Routes basename="/mern-Ehilada-frontend- ">
+    <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgotpassword" element={<Forgot />} />
