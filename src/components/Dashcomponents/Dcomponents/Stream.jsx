@@ -54,11 +54,14 @@ function Stream() {
 
   const fetchUserClasses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/classes", {
-        headers: {
-          Authorization: `Bearer ${userToken}`, // Include the user's token
-        },
-      });
+      const response = await axios.get(
+        "https://mern-ehilada-backend.onrender.com/api/classes",
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`, // Include the user's token
+          },
+        }
+      );
 
       if (response.status === 200) {
         const userClasses = response.data;
@@ -81,7 +84,7 @@ function Stream() {
   const fetchAttendanceData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/attendance/${classInfo._id}`,
+        `https://mern-ehilada-backend.onrender.com/api/attendance/${classInfo._id}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -113,7 +116,7 @@ function Stream() {
   const checkIfUserJoinedClass = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/classes/joinedWithDetails`,
+        `https://mern-ehilada-backend.onrender.com/api/classes/joinedWithDetails`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,
@@ -146,7 +149,7 @@ function Stream() {
   const fetchActivities = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/activities/${classInfo._id}`,
+        `https://mern-ehilada-backend.onrender.com/api/activities/${classInfo._id}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -187,7 +190,7 @@ function Stream() {
   const fetchQuizTitles = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/quiz-titles?classId=${classInfo._id}`,
+        `https://mern-ehilada-backend.onrender.com/api/quiz-titles?classId=${classInfo._id}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -227,7 +230,7 @@ function Stream() {
   const fetchAnnouncements = async (classId) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/announcements/${classId}`, // Pass the classId as part of the URL
+        `https://mern-ehilada-backend.onrender.com/api/announcements/${classId}`, // Pass the classId as part of the URL
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -249,7 +252,7 @@ function Stream() {
       const fileName = file.split("/").pop();
       return (
         <a
-          href={`http://localhost:5000/${file}`}
+          href={`https://mern-ehilada-backend.onrender.com/${file}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -297,7 +300,7 @@ function Stream() {
 
       // Make a POST request to your backend API with the announcement and file
       const response = await axios.post(
-        "http://localhost:5000/api/announcements",
+        "https://mern-ehilada-backend.onrender.com/api/announcements",
         formData, // Send the form data with the file
         {
           headers: {
