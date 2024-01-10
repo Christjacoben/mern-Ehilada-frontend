@@ -153,11 +153,7 @@ function AttendanceTaker() {
         setStudents([]);
         // Attendance submitted successfully, you can handle success here
         console.log("Attendance submitted successfully");
-        navigate(
-          `/stream?class=${encodeURIComponent(
-            JSON.stringify({ _id: classId })
-          )}&user=${encodeURIComponent(JSON.stringify(user))}`
-        );
+        navigate("/stream");
       }
     } catch (error) {
       // Handle any errors here
@@ -166,6 +162,9 @@ function AttendanceTaker() {
   };
 
   const convertToPhilippineTime = (dateTimeString) => {
+    if (!dateTimeString) {
+      return "Due Date and Time not set";
+    }
     const options = {
       timeZone: "Asia/Manila",
       hour: "2-digit",
@@ -207,12 +206,18 @@ const handleClickBack = () => {
             placeholder="Enter Student Full Name"
             value={studentName}
             onChange={handleNameChange}
-            disabled={!canAddStudent || dueDateTimePassed}
+            disabled={
+              !canAddStudent ||
+              (attendanceData.length > 0 && attendanceData[0].dueDateTime)
+            }
           />
           <div className="button-container">
             <button
               onClick={addStudent}
-              disabled={!canAddStudent || dueDateTimePassed}
+              disabled={
+                !canAddStudent ||
+                (attendanceData.length > 0 && attendanceData[0].dueDateTime)
+              }
             >
               Add Student
             </button>

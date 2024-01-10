@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Attendance.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LogoAtten from "./image/ehilada1.png";
 
@@ -10,7 +10,7 @@ function Attendance() {
 
   const classId = sessionStorage.getItem("classInfoId");
 
-  console.log("successfully retrive", classId);
+  const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
   const [dueDateTime, setDueDateTime] = useState("");
@@ -33,12 +33,12 @@ function Attendance() {
     axios
       .post("http://localhost:5000/api/attendance", attendanceData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("usertoken")}`,
+          Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
         },
       })
       .then((response) => {
         // Handle success if needed
-        console.log("Data saved to MongoDB:", response.data);
+        navigate("/stream");
         setTitle("");
         setDueDateTime("");
       })

@@ -42,7 +42,8 @@ const Login = () => {
     try {
       // Send the form data to the backend for login
       const response = await axios.post(
-        "http://localhost:5000/api/login",
+        "https://mern-ehilada-backend.onrender.com/api/login",
+
         formData
       );
 
@@ -64,7 +65,7 @@ const Login = () => {
 
       // If login successful, you can redirect the user to a dashboard or home page
       const userResponse = await axios.get(
-        `http://localhost:5000/api/user/${formData.usernameOrEmail}`
+        `https://mern-ehilada-backend.onrender.com/api/user/${formData.usernameOrEmail}`
       );
       //navigate dashboard
 
