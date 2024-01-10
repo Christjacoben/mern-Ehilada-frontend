@@ -32,7 +32,7 @@ function DashHeader() {
 
         // Fetch created classes
         const createdClassesResponse = await fetch(
-          "http://localhost:5000/api/classes",
+          "https://mern-ehilada-backend.onrender.com/api/classes",
           {
             method: "GET",
             headers: {
@@ -44,7 +44,7 @@ function DashHeader() {
 
         // Fetch joined classes
         const joinedClassesResponse = await fetch(
-          "http://localhost:5000/api/classes/joinedWithDetails",
+          "https://mern-ehilada-backend.onrender.com/api/classes/joinedWithDetails",
           {
             method: "GET",
             headers: {
@@ -113,14 +113,17 @@ function DashHeader() {
     try {
       const authToken = sessionStorage.getItem("usertoken");
 
-      const response = await fetch("http://localhost:5000/api/classes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({ ...classDetails }),
-      });
+      const response = await fetch(
+        "https://mern-ehilada-backend.onrender.com/api/classes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: JSON.stringify({ ...classDetails }),
+        }
+      );
 
       if (response.ok) {
         const createdClass = await response.json();
