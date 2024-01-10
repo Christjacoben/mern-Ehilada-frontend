@@ -32,7 +32,7 @@ function AttendanceTaker() {
     try {
       // Send a GET request to the API to fetch attendance data for the specific class
       const response = await axios.get(
-        `http://localhost:5000/api/attendance/${classId}`,
+        `https://mern-ehilada-backend.onrender.com/api/attendance/${classId}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -74,7 +74,7 @@ function AttendanceTaker() {
       try {
         // Send a GET request to the API to fetch attendance submissions
         const response = await axios.get(
-          "http://localhost:5000/api/attendance/submissions",
+          "https://mern-ehilada-backend.onrender.com/api/attendance/submissions",
           {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -140,7 +140,7 @@ function AttendanceTaker() {
 
       // Send the attendance data to your API endpoint
       const response = await axios.post(
-        "http://localhost:5000/api/attendance/submit",
+        "https://mern-ehilada-backend.onrender.com/api/attendance/submit",
         attendanceData,
         {
           headers: {

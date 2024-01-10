@@ -53,14 +53,17 @@ function CreateClass({ onClose, onCreate }) {
       const randomCode = generateRandomCode(6);
       const authToken = sessionStorage.getItem("usertoken"); // Get the JWT token
 
-      const response = await fetch("http://localhost:5000/api/classes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`, // Pass the JWT token
-        },
-        body: JSON.stringify({ ...classDetails, code: randomCode }),
-      });
+      const response = await fetch(
+        "https://mern-ehilada-backend.onrender.com/api/classes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`, // Pass the JWT token
+          },
+          body: JSON.stringify({ ...classDetails, code: randomCode }),
+        }
+      );
 
       setIsLoading(false);
 

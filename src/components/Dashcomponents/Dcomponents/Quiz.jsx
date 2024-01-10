@@ -132,13 +132,16 @@ const QuestionForm = () => {
       const token = sessionStorage.getItem("usertoken");
 
       // Make the fetch request with FormData
-      const response = await fetch("http://localhost:5000/api/questions", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        "https://mern-ehilada-backend.onrender.com/api/questions",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         console.log("Questions saved successfully!");

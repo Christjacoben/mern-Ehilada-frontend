@@ -24,7 +24,7 @@ function JoinClass({ onJoinClassSuccess }) {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/classes/join",
+        "https://mern-ehilada-backend.onrender.com/api/classes/join",
         {
           classCode,
           username,

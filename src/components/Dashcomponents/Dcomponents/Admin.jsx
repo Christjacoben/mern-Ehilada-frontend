@@ -14,12 +14,15 @@ function Admin() {
     // Function to fetch user data from the backend API
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/users", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
-          },
-        });
+        const response = await fetch(
+          "https://mern-ehilada-backend.onrender.com/api/users",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
+            },
+          }
+        );
 
         if (response.ok) {
           const userData = await response.json();
@@ -47,7 +50,7 @@ function Admin() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/users/${userId}/password`,
+        `https://mern-ehilada-backend.onrender.com/api/users/${userId}/password`,
         {
           method: "PUT",
           headers: {
@@ -72,7 +75,7 @@ function Admin() {
   const handleUserDelete = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/users/${userId}`,
+        `https://mern-ehilada-backend.onrender.com/api/users/${userId}`,
         {
           method: "DELETE",
           headers: {
@@ -97,7 +100,7 @@ function Admin() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/users/${userId}/username`,
+        `https://mern-ehilada-backend.onrender.com/api/users/${userId}/username`,
         {
           method: "PUT",
           headers: {
@@ -123,12 +126,15 @@ function Admin() {
     // Fetch classes from the backend API
     const fetchClasses = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/all-classes", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
-          },
-        });
+        const response = await fetch(
+          "https://mern-ehilada-backend.onrender.com/api/all-classes",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
+            },
+          }
+        );
 
         if (response.ok) {
           const classesData = await response.json();
@@ -148,7 +154,7 @@ function Admin() {
     try {
       // Make a DELETE request to the backend to delete the class
       const response = await fetch(
-        `http://localhost:5000/api/classes/${classId}`,
+        `https://mern-ehilada-backend.onrender.com/api/classes/${classId}`,
         {
           method: "DELETE",
           headers: {
@@ -184,7 +190,7 @@ function Admin() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/classes/${classId}`,
+        `https://mern-ehilada-backend.onrender.com/api/classes/${classId}`,
         {
           method: "PUT",
           headers: {

@@ -19,9 +19,12 @@ const ForgotPassword = () => {
 
   const handleSendOtp = async () => {
     try {
-      await axios.post("http://localhost:5000/api/forgotpassword", {
-        email: formData.email,
-      });
+      await axios.post(
+        "https://mern-ehilada-backend.onrender.com/api/forgotpassword",
+        {
+          email: formData.email,
+        }
+      );
       alert("OTP sent to your email.");
     } catch (error) {
       console.error("Error sending OTP:", error);
@@ -32,11 +35,14 @@ const ForgotPassword = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/resetPassword", {
-        email: formData.email,
-        otp: formData.otp,
-        newPassword: formData.newPassword,
-      });
+      await axios.post(
+        "https://mern-ehilada-backend.onrender.com/api/resetPassword",
+        {
+          email: formData.email,
+          otp: formData.otp,
+          newPassword: formData.newPassword,
+        }
+      );
       alert(
         "Password reset successful. You can now login with the new password."
       );

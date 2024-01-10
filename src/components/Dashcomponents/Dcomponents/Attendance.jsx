@@ -31,11 +31,15 @@ function Attendance() {
     };
 
     axios
-      .post("http://localhost:5000/api/attendance", attendanceData, {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
-        },
-      })
+      .post(
+        "https://mern-ehilada-backend.onrender.com/api/attendance",
+        attendanceData,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
+          },
+        }
+      )
       .then((response) => {
         // Handle success if needed
         navigate("/stream");

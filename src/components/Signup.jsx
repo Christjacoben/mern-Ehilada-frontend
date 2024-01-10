@@ -30,7 +30,10 @@ const Signup = () => {
 
     try {
       // Send the form data to the backend for storage
-      await axios.post("http://localhost:5000/api/signup", formData);
+      await axios.post(
+        "https://mern-ehilada-backend.onrender.com/api/signup",
+        formData
+      );
       console.log("Successfully signed up");
       // Clear the form after successful submission
 
@@ -52,7 +55,7 @@ const Signup = () => {
   useEffect(() => {
     // Check if an admin user is already created
     axios
-      .get("http://localhost:5000/api/checkAdmin")
+      .get("https://mern-ehilada-backend.onrender.com/api/checkAdmin")
       .then((response) => {
         setIsAdminCreated(response.data.isAdminCreated);
       })

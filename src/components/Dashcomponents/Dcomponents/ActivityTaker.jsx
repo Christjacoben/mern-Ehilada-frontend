@@ -54,11 +54,14 @@ function ActivityTaker() {
     if (userToken) {
       const userId = user.userId;
       axios
-        .get(`http://localhost:5000/api/fetch-submitted-activities/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        })
+        .get(
+          `https://mern-ehilada-backend.onrender.com/api/fetch-submitted-activities/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+          }
+        )
         .then((response) => {
           if (response.status === 200) {
             // Filter submitted activities for the current activityTitle
@@ -84,7 +87,7 @@ function ActivityTaker() {
       const fileName = file.split("/").pop();
       return (
         <a
-          href={`http://localhost:5000/${file}`}
+          href={`https://mern-ehilada-backend.onrender.com/${file}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -111,7 +114,7 @@ function ActivityTaker() {
     const fetchActivity = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/activities?classId=${classId}&activityTitle=${encodeURIComponent(
+          `https://mern-ehilada-backend.onrender.com/api/activities?classId=${classId}&activityTitle=${encodeURIComponent(
             activityTitle
           )}`,
           {
@@ -194,11 +197,15 @@ function ActivityTaker() {
 
       // Send a request to the server to submit/update the activity with the FormData
       axios
-        .post("http://localhost:5000/api/submit-activity", submissionData, {
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
-          },
-        })
+        .post(
+          "https://mern-ehilada-backend.onrender.com/api/submit-activity",
+          submissionData,
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
+            },
+          }
+        )
         .then((response) => {
           // Handle the response, e.g., show a success message to the user
           console.log("User Data:", user);

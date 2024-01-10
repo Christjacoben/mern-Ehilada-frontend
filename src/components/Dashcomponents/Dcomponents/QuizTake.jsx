@@ -42,7 +42,7 @@ function QuizTake() {
       const fileName = file.filePath.split("\\").pop(); // Use '\\' for Windows path
       return (
         <a
-          href={`http://localhost:5000/${file.filePath}`}
+          href={`https://mern-ehilada-backend.onrender.com/${file.filePath}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -71,7 +71,7 @@ function QuizTake() {
     const fetchSubmittedQuizzes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/quiz/submissions/${user.userId}`,
+          `https://mern-ehilada-backend.onrender.com/api/quiz/submissions/${user.userId}`,
           {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -99,7 +99,7 @@ function QuizTake() {
             setSubmittedFile({
               fileName: fileName,
               filePath: specificQuiz.file.filePath
-                ? `http://localhost:5000/${specificQuiz.file.filePath}`
+                ? `https://mern-ehilada-backend.onrender.com/${specificQuiz.file.filePath}`
                 : null,
             });
           }
@@ -181,7 +181,7 @@ function QuizTake() {
   const fetchQuizQuestions = async (classId) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/quizzes/${classId}`,
+        `https://mern-ehilada-backend.onrender.com/api/quizzes/${classId}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -264,7 +264,7 @@ function QuizTake() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/quiz/submit",
+        "https://mern-ehilada-backend.onrender.com/api/quiz/submit",
         formData,
         {
           headers: {

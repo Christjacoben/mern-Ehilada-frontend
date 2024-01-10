@@ -33,7 +33,7 @@ function Grade() {
   const fetchUsersInClass = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/classes/users/${classId}`,
+        `https://mern-ehilada-backend.onrender.com/api/classes/users/${classId}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -55,7 +55,7 @@ function Grade() {
     try {
       // Fetch quiz submissions
       const quizSubmissionsResponse = await axios.get(
-        `http://localhost:5000/api/quiz/submissions/${userId}`,
+        `https://mern-ehilada-backend.onrender.com/api/quiz/submissions/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -71,7 +71,7 @@ function Grade() {
 
       // Fetch submitted activities
       const submittedActivitiesResponse = await axios.get(
-        `http://localhost:5000/api/fetch-submitted-activities/${userId}`,
+        `https://mern-ehilada-backend.onrender.com/api/fetch-submitted-activities/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("usertoken")}`,
@@ -204,7 +204,7 @@ function Grade() {
                       <p>
                         Uploaded File:
                         <a
-                          href={`http://localhost:5000/${activity.uploadedFile}`}
+                          href={`https://mern-ehilada-backend.onrender.com/${activity.uploadedFile}`}
                           target="_blank"
                           rel="noopener noreferrer"
                         >

@@ -52,7 +52,7 @@ function Activity() {
     };
     const token = sessionStorage.getItem("usertoken");
     axios
-      .post("http://localhost:5000/api/activities", data, {
+      .post("https://mern-ehilada-backend.onrender.com/api/activities", data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
