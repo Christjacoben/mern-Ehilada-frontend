@@ -362,18 +362,19 @@ const QuestionForm = () => {
           </div>
         ))}
 
-        <div className="form-group-scheduledatetime">
-          <label htmlFor={`scheduleDateTime`}>Scheduled Date and Time:</label>
-          <input
-            type="datetime-local"
-            id={`scheduleDateTime`}
-            name={`scheduleDateTime`}
-            value={scheduleDateTime}
-            onChange={handleScheduleDateTimeChange}
-            disabled={!isScheduleDateTimeEnabled}
-          />
-        </div>
         <div className="form-group-ex">
+          <div className="form-group-scheduledatetime">
+            <label htmlFor={`scheduleDateTime`}>Scheduled Date and Time:</label>
+            <input
+              type="datetime-local"
+              id={`scheduleDateTime`}
+              name={`scheduleDateTime`}
+              value={scheduleDateTime}
+              onChange={handleScheduleDateTimeChange}
+              disabled={!isScheduleDateTimeEnabled}
+            />
+          </div>
+
           {/* Checkbox to enable/disable scheduled date and time */}
           <div className="form-group-enableScheduleDateTime">
             <label htmlFor={`scheduleDateTimeToggle`}>
