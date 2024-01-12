@@ -185,11 +185,13 @@ const QuestionForm = () => {
   const handleDueDateTimeToggle = () => {
     setIsDueDateTimeEnabled(!isDueDateTimeEnabled);
   };
-
+  const handleBackToStream = () => {
+    navigate("/stream");
+  };
   return (
     <div>
       <div className="nav">
-        <img src={Logo} alt="logo" />
+        <img src={Logo} alt="logo" onClick={handleBackToStream} />
       </div>
       <form onSubmit={handleSubmit}>
         {questions.map((question, index) => (
