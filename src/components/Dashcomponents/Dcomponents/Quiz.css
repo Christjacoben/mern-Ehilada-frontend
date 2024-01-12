@@ -184,6 +184,9 @@
   margin-top: -50%;
   float: right;
 }
+.form-group-ex{
+  border: 1px solid;
+}
 .nav{
   top: 0;
   left: 0;

@@ -373,39 +373,40 @@ const QuestionForm = () => {
             disabled={!isScheduleDateTimeEnabled}
           />
         </div>
+        <div className="form-group-ex">
+          {/* Checkbox to enable/disable scheduled date and time */}
+          <div className="form-group-enableScheduleDateTime">
+            <label htmlFor={`scheduleDateTimeToggle`}>
+              Enable Scheduled Date and Time:
+            </label>
+            <input
+              type="checkbox"
+              id={`scheduleDateTimeToggle`}
+              checked={isScheduleDateTimeEnabled}
+              onChange={handleScheduleDateTimeToggle}
+            />
+          </div>
 
-        {/* Checkbox to enable/disable scheduled date and time */}
-        <div className="form-group-enableScheduleDateTime">
-          <label htmlFor={`scheduleDateTimeToggle`}>
-            Enable Scheduled Date and Time:
-          </label>
-          <input
-            type="checkbox"
-            id={`scheduleDateTimeToggle`}
-            checked={isScheduleDateTimeEnabled}
-            onChange={handleScheduleDateTimeToggle}
-          />
-        </div>
+          <div className="form-group-file">
+            <label htmlFor={`file`}>Upload File:</label>
+            <input
+              type="file"
+              id={`file`}
+              name={`file`}
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+          </div>
 
-        <div className="form-group-file">
-          <label htmlFor={`file`}>Upload File:</label>
-          <input
-            type="file"
-            id={`file`}
-            name={`file`}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-        </div>
-
-        <div className="form-group-link">
-          <label htmlFor={`link`}>Link:</label>
-          <input
-            type="text"
-            id={`link`}
-            name={`link`}
-            value={link}
-            onChange={(e) => setLink(e.target.value)}
-          />
+          <div className="form-group-link">
+            <label htmlFor={`link`}>Link:</label>
+            <input
+              type="text"
+              id={`link`}
+              name={`link`}
+              value={link}
+              onChange={(e) => setLink(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="bnt-form">
