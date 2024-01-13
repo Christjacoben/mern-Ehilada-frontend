@@ -167,12 +167,8 @@ function Stream() {
             new Date(activity.scheduleDateTime) <= currentDateTime
         );
 
-        if (activitiesData.length > 0) {
-          const firstActivityTitle = activitiesData[0].activityTitle;
-          console.log("First Activity Title:", firstActivityTitle);
-        }
-
-        setActivitiesData(filteredActivities); // Update the state with activitiesData
+        setActivitiesData(filteredActivities);
+        console.log("filter", filteredActivities); // Update the state with activitiesData
       }
     } catch (error) {
       console.error("Error fetching activities:", error);
