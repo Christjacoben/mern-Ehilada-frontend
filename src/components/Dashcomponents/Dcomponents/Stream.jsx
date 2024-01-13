@@ -184,7 +184,9 @@ function Stream() {
 
       return () => clearInterval(intervalId);
     }
-  }, [classInfo]);
+  }, [classInfo, activitiesData]);
+
+  console.log("activitiesData:", activitiesData);
 
   // Function to fetch quiz titles
   const fetchQuizTitles = async () => {
@@ -557,6 +559,7 @@ function Stream() {
       <div className="Activity-container">
         <h3>Posted Activity and Assigntment</h3>
         {/* Display activity and assignment titles */}
+
         {activitiesData.map((activity, index) => (
           <div
             className="announcementA"
