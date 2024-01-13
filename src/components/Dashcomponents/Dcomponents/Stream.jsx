@@ -561,11 +561,11 @@ function Stream() {
           <div
             className="announcementA"
             key={index}
-            onClick={() => handleActivityTitleClick(activity)}
+            onClick={() => handleActivityTitleClick(activity[0])}
             style={{ cursor: "pointer" }}
           >
-            <p>{activity.activityTitle}</p>
-            <p>Due Date: {convertToPhilippineTime(activity.dueDate)}</p>
+            <p>{activity[0].activityTitle}</p>
+            <p>Due Date: {convertToPhilippineTime(activity[0].dueDate)}</p>
             {/* Display due date and time */}
           </div>
         ))}
