@@ -167,8 +167,7 @@ function Stream() {
             new Date(activity.scheduleDateTime) <= currentDateTime
         );
 
-        setActivitiesData(filteredActivities);
-        console.log("filter", filteredActivities); // Update the state with activitiesData
+        setActivitiesData(filteredActivities); // Update the state with activitiesData
       }
     } catch (error) {
       console.error("Error fetching activities:", error);
