@@ -167,6 +167,11 @@ function Stream() {
             new Date(activity.scheduleDateTime) <= currentDateTime
         );
 
+        if (activitiesData.length > 0) {
+          const firstActivityTitle = activitiesData[0].activityTitle;
+          console.log("First Activity Title:", firstActivityTitle);
+        }
+
         setActivitiesData(filteredActivities); // Update the state with activitiesData
       }
     } catch (error) {
@@ -564,11 +569,11 @@ function Stream() {
           <div
             className="announcementA"
             key={index}
-            onClick={() => handleActivityTitleClick(activity[0])}
+            onClick={() => handleActivityTitleClick(activity)}
             style={{ cursor: "pointer" }}
           >
-            <p>{activity[0].activityTitle}</p>
-            <p>Due Date: {convertToPhilippineTime(activity[0].dueDate)}</p>
+            <p>{activity.activityTitle}</p>
+            <p>Due Date: {convertToPhilippineTime(activity.dueDate)}</p>
             {/* Display due date and time */}
           </div>
         ))}
