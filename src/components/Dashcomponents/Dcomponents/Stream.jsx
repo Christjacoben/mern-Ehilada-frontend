@@ -158,7 +158,7 @@ function Stream() {
       );
       if (response.status === 200) {
         const activitiesData = response.data;
-        console.log("activites", activitiesData);
+        console.log("activitiesData before setActivitiesData:", activitiesData);
 
         const currentDateTime = new Date();
         const filteredActivities = activitiesData.filter(
@@ -168,6 +168,10 @@ function Stream() {
         );
 
         setActivitiesData(filteredActivities); // Update the state with activitiesData
+        console.log(
+          "activitiesData after setActivitiesData:",
+          filteredActivities
+        );
       }
     } catch (error) {
       console.error("Error fetching activities:", error);
@@ -179,6 +183,7 @@ function Stream() {
   useEffect(() => {
     if (classInfo) {
       const intervalId = setInterval(() => {
+        console.log("Fetching activities...");
         fetchActivities();
       }, 3000);
 
