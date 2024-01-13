@@ -557,6 +557,7 @@ function Stream() {
       <div className="Activity-container">
         <h3>Posted Activity and Assigntment</h3>
         {/* Display activity and assignment titles */}
+        {console.log("activitiesData:", activitiesData)}
         {activitiesData.map((activity, index) => (
           <div
             className="announcementA"
