@@ -495,7 +495,7 @@ function QuizTake() {
                           <label>
                             <input
                               type="radio"
-                              name={`question_${questionIndex}_option_${optionIndex}`}
+                              name={`question_${questionIndex}`}
                               value={option}
                               onChange={() =>
                                 handleAnswerChange(
