@@ -496,7 +496,7 @@ function QuizTake() {
                             <input
                               type="radio"
                               name={`question_${questionIndex}`}
-                              value={`${questionIndex}_${option}`}
+                              value={`${questionIndex}_${optionIndex}`}
                               onChange={() =>
                                 handleAnswerChange(
                                   option,
@@ -506,7 +506,7 @@ function QuizTake() {
                                 )
                               }
                               checked={
-                                selectedAnswers[questionIndex] === option
+                                selectedAnswers[questionIndex] === optionIndex
                               }
                               disabled={!quizStarted}
                             />
