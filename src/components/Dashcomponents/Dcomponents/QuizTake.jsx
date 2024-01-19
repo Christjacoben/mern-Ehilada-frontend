@@ -506,16 +506,19 @@ function QuizTake() {
                                 )
                               }
                               checked={
-                                selectedAnswers[questionIndex] === optionIndex
+                                selectedAnswers[questionIndex] ===
+                                `${questionIndex}_${optionIndex}`
                               }
                               disabled={!quizStarted}
                             />
                             <span
                               className={
-                                selectedAnswers[questionIndex] === option
-                                  ? "selected-answer" // Highlight selected answer
-                                  : question.correctAnswer === option
-                                  ? "correct-answer" // Highlight correct answer
+                                selectedAnswers[questionIndex] ===
+                                `${questionIndex}_${optionIndex}`
+                                  ? "selected-answer"
+                                  : question.correctAnswer ===
+                                    `${questionIndex}_${optionIndex}`
+                                  ? "correct-answer"
                                   : ""
                               }
                             >
