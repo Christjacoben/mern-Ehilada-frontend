@@ -495,8 +495,8 @@ function QuizTake() {
                           <label>
                             <input
                               type="radio"
-                              name={`question_${questionIndex}`}
-                              value={`${questionIndex}_${optionIndex}`}
+                              name={`question_${questionIndex}_options`}
+                              value={option}
                               onChange={() =>
                                 handleAnswerChange(
                                   option,
@@ -506,19 +506,16 @@ function QuizTake() {
                                 )
                               }
                               checked={
-                                selectedAnswers[questionIndex] ===
-                                `${questionIndex}_${optionIndex}`
+                                selectedAnswers[questionIndex] === option
                               }
                               disabled={!quizStarted}
                             />
                             <span
                               className={
-                                selectedAnswers[questionIndex] ===
-                                `${questionIndex}_${optionIndex}`
-                                  ? "selected-answer"
-                                  : question.correctAnswer ===
-                                    `${questionIndex}_${optionIndex}`
-                                  ? "correct-answer"
+                                selectedAnswers[questionIndex] === option
+                                  ? "selected-answer" // Highlight selected answer
+                                  : question.correctAnswer === option
+                                  ? "correct-answer" // Highlight correct answer
                                   : ""
                               }
                             >
