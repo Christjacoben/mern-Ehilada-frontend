@@ -301,7 +301,7 @@ function QuizTake() {
       } else if (questionType === "trueFalse") {
         // For true/false questions, store the true/false value
         updatedAnswers[questionIndex] = selectedAnswer === "true" ? 0 : 1;
-      } else if (questionType === " essay") {
+      } else if (questionType === "essay") {
         setEssayAnswer(selectedAnswer);
       } else {
         // For other question types, store the selected answer
