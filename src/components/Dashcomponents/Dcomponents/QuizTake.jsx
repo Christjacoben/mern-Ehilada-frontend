@@ -22,7 +22,7 @@ function QuizTake() {
   const [timeRemaining, setTimeRemaining] = useState(timeLimit * 60);
   const [timerID, setTimerID] = useState(null);
   const [quizStarted, setQuizStarted] = useState(false);
-  const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [selectedAnswers, setSelectedAnswers] = useState({});
 
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [userScore, setUserScore] = useState(0);
@@ -289,7 +289,7 @@ function QuizTake() {
   const handleAnswerChange = (
     selectedAnswer,
     correctAnswer,
-    questionIndex,
+    questionId,
     questionType
   ) => {
     setSelectedAnswers((prevSelectedAnswers) => {
@@ -297,15 +297,15 @@ function QuizTake() {
 
       if (questionType === "enumeration" || questionType === "multipleChoice") {
         // For enumeration and multiple-choice questions, store the selected option
-        updatedAnswers[questionIndex] = selectedAnswer;
+        updatedAnswers[questionId] = selectedAnswer;
       } else if (questionType === "trueFalse") {
         // For true/false questions, store the true/false value
-        updatedAnswers[questionIndex] = selectedAnswer === "true" ? 0 : 1;
+        updatedAnswers[questionId] = selectedAnswer === "true" ? 0 : 1;
       } else if (questionType === "essay") {
         setEssayAnswer(selectedAnswer);
       } else {
         // For other question types, store the selected answer
-        updatedAnswers[questionIndex] = selectedAnswer;
+        updatedAnswers[questionId] = selectedAnswer;
       }
 
       return updatedAnswers;
@@ -506,7 +506,7 @@ function QuizTake() {
                                 )
                               }
                               checked={
-                                selectedAnswers[questionIndex] === option
+                                selectedAnswers[question.questionId] === option
                               }
                               disabled={!quizStarted}
                             />
