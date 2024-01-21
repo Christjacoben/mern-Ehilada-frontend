@@ -2,15 +2,9 @@
 .question-text {
     user-select: none;
   }
-  .correct-answer {
-    color: green; /* Change the color to your preferred highlight style */
-    font-weight: bold;
-  }
   
-  .wrong-answer {
-    color: red; /* Change the color to your preferred highlight style */
-    font-weight: bold;
-  }
+  
+  
   button:disabled {
     opacity: 0.5; /* Reduce the opacity of disabled buttons */
     cursor: not-allowed; /* Change cursor to not-allowed */

@@ -65,6 +65,7 @@ function Grade() {
 
       if (quizSubmissionsResponse.status === 200) {
         const quizSubmissionsData = quizSubmissionsResponse.data;
+
         setUserQuizSubmissions(quizSubmissionsData);
         setQuizSubmissions(quizSubmissionsData);
       }
@@ -168,7 +169,12 @@ function Grade() {
                               Question: {question.question}
                               <br />
                               <p className="answers">
-                                Answer: {question.answer}
+                                Answer:{" "}
+                                {JSON.stringify(
+                                  question.answer.label !== undefined
+                                    ? question.answer.label
+                                    : question.answer
+                                )}
                               </p>
                               <br />
                             </div>

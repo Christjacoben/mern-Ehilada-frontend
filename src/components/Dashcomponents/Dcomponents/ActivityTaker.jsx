@@ -209,14 +209,10 @@ function ActivityTaker() {
         .then((response) => {
           // Handle the response, e.g., show a success message to the user
           console.log("User Data:", user);
-          navigate(
-            `/Stream?class=${encodeURIComponent(
-              JSON.stringify({ _id: classId })
-            )}&user=${encodeURIComponent(JSON.stringify(user))}`
-          );
+          navigate("/stream");
           console.log("Activity submitted/updated successfully");
           setIsMarkedAsDone(true);
-          setOriginalUserAnswer(userAnswer);
+          // setOriginalUserAnswer(userAnswer);
           setOriginalUserLink(userLink);
           setOriginalUploadedFile(uploadedFile);
         })
