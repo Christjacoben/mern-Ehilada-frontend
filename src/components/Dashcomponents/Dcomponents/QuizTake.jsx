@@ -22,7 +22,7 @@ function QuizTake() {
   const [timeRemaining, setTimeRemaining] = useState(timeLimit * 60);
   const [timerID, setTimerID] = useState(null);
   const [quizStarted, setQuizStarted] = useState(false);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
 
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [userScore, setUserScore] = useState(0);
@@ -88,6 +88,12 @@ function QuizTake() {
             (quiz) => quiz.quizTitle === quizTitle
           );
 
+          if (specificQuiz) {
+            const essayAnswer = specificQuiz.essayAnswer;
+            console.log("essay answer", essayAnswer);
+            console.log("Main Component - essay answer", essayAnswer);
+          }
+
           if (specificQuiz && specificQuiz.file) {
             setQuizFile(specificQuiz.file);
 
@@ -117,17 +123,21 @@ function QuizTake() {
               const submittedAnswers = {}; // Map to hold submitted answers for each question
 
               submissions.questionUserAnswerPairs.forEach((pair) => {
-                submittedAnswers[pair.question] = pair.answer;
+                if (pair.answer && pair.answer.label !== undefined) {
+                  // For multiple choice questions
+                  submittedAnswers[pair.question] = pair.answer.label;
+                } else if (pair.answer !== undefined) {
+                  // For other question types
+                  submittedAnswers[pair.question] = pair.answer;
+                } else {
+                  submittedAnswers[pair.question] = null; // Handle null or undefined answers
+                }
               });
 
               setSelectedAnswers(submittedAnswers);
 
-              console.log("Submitted Answers:", submittedAnswers);
-
               const userScore = submissions.userScore;
               setUserScore(userScore);
-
-              console.log("User Score:", userScore);
 
               setHasQuizBeenSubmitted(true);
             }
@@ -243,10 +253,15 @@ function QuizTake() {
     const quizTitleToSubmit = fetchedQuizTitle;
 
     const questionUserAnswerPairs = quizQuestions.map(
-      (question, questionIndex) => ({
-        question: question.questionText,
-        answer: selectedAnswers[questionIndex],
-      })
+      (question, questionIndex) => {
+        console.log("Selected answer:", selectedAnswers[questionIndex]);
+        console.log("Question text:", question.questionText);
+
+        return {
+          question: question.questionText,
+          answer: selectedAnswers[questionIndex],
+        };
+      }
     );
 
     const formData = new FormData();
@@ -287,27 +302,33 @@ function QuizTake() {
   };
 
   const handleAnswerChange = (
-    selectedAnswer,
+    selectedOptionIndex,
     correctAnswer,
-    questionId,
-    questionType
+    questionIndex,
+    questionType,
+    options
   ) => {
     setSelectedAnswers((prevSelectedAnswers) => {
       const updatedAnswers = [...prevSelectedAnswers];
 
-      if (questionType === "enumeration" || questionType === "multipleChoice") {
+      if (questionType === "enumeration") {
+        updatedAnswers[questionIndex] = selectedOptionIndex;
+      } else if (questionType === "multipleChoice") {
         // For enumeration and multiple-choice questions, store the selected option
-        updatedAnswers[questionId] = selectedAnswer;
+        updatedAnswers[questionIndex] = {
+          index: selectedOptionIndex,
+          label: options[selectedOptionIndex],
+        };
       } else if (questionType === "trueFalse") {
         // For true/false questions, store the true/false value
-        updatedAnswers[questionId] = selectedAnswer === "true" ? 0 : 1;
+        updatedAnswers[questionIndex] =
+          selectedOptionIndex === 0 ? "true" : "false";
       } else if (questionType === "essay") {
-        setEssayAnswer(selectedAnswer);
       } else {
         // For other question types, store the selected answer
-        updatedAnswers[questionId] = selectedAnswer;
+        updatedAnswers[questionIndex] = selectedOptionIndex;
       }
-
+      console.log("Selected Answers to:", updatedAnswers);
       return updatedAnswers;
     });
   };
@@ -371,20 +392,20 @@ function QuizTake() {
     quizQuestions.forEach((question, questionIndex) => {
       if (question.questionType === "multipleChoice") {
         const selectedAnswer = submittedAnswers[questionIndex];
-        const correctAnswerIndex = question.correctAnswer;
 
-        if (selectedAnswer === question.options[correctAnswerIndex]) {
+        // Check if the selected answer's index matches the correct answer's index
+        if (selectedAnswer && selectedAnswer.index === question.correctAnswer) {
           score++;
         }
       } else if (question.questionType === "trueFalse") {
         const selectedAnswer = submittedAnswers[questionIndex];
-        const correctAnswer = trueFalseCorrectAnswers[questionIndex];
+        const correctAnswer = question.correctAnswer === 0 ? "true" : "false";
 
         if (selectedAnswer === correctAnswer) {
           score++;
         }
       }
-      // You might consider adding similar logic for other question types if necessary
+      // Add similar logic for other question types if needed
     });
 
     return score;
@@ -476,11 +497,12 @@ function QuizTake() {
                         }
                         disabled={!quizStarted}
                       />
-                      {quizSubmitted && ( // Conditionally display submitted answer if quiz has been submitted
+                      {quizSubmitted && (
                         <p className="submit">
                           Submitted Answer:{" "}
-                          {selectedAnswers[question.questionText] ||
-                            "Not submitted"}
+                          {selectedAnswers[question.questionText] !== undefined
+                            ? selectedAnswers[question.questionText]
+                            : "Not submitted"}
                         </p>
                       )}
                     </div>
@@ -499,22 +521,27 @@ function QuizTake() {
                               value={option}
                               onChange={() =>
                                 handleAnswerChange(
-                                  option,
+                                  optionIndex,
                                   question.correctAnswer,
                                   questionIndex,
-                                  question.questionType
+                                  question.questionType,
+                                  question.options
                                 )
                               }
                               checked={
-                                selectedAnswers[question.questionId] === option
+                                selectedAnswers[questionIndex] &&
+                                selectedAnswers[questionIndex].index ===
+                                  optionIndex
                               }
                               disabled={!quizStarted}
                             />
                             <span
                               className={
-                                selectedAnswers[questionIndex] === option
+                                selectedAnswers[questionIndex] &&
+                                selectedAnswers[questionIndex].index ===
+                                  optionIndex
                                   ? "selected-answer" // Highlight selected answer
-                                  : question.correctAnswer === option
+                                  : question.correctAnswer === optionIndex
                                   ? "correct-answer" // Highlight correct answer
                                   : ""
                               }
@@ -528,8 +555,9 @@ function QuizTake() {
                       {quizSubmitted && (
                         <p className="submit">
                           Submitted Answer:{" "}
-                          {selectedAnswers[question.questionText] ||
-                            "Not submitted"}
+                          {selectedAnswers[question.questionText] !== undefined
+                            ? selectedAnswers[question.questionText]
+                            : "Not submitted"}
                         </p>
                       )}
                     </div>
@@ -546,13 +574,13 @@ function QuizTake() {
                             value="true"
                             onChange={() =>
                               handleAnswerChange(
-                                "true",
+                                0,
                                 question.correctAnswer,
                                 questionIndex,
                                 question.questionType
                               )
                             }
-                            checked={selectedAnswers[questionIndex] === 0}
+                            checked={selectedAnswers[questionIndex] === "true"}
                             disabled={!quizStarted}
                           />
                           <span
@@ -576,13 +604,13 @@ function QuizTake() {
                             value="false"
                             onChange={() =>
                               handleAnswerChange(
-                                "false",
+                                1,
                                 question.correctAnswer,
                                 questionIndex,
                                 question.questionType
                               )
                             }
-                            checked={selectedAnswers[questionIndex] === 1}
+                            checked={selectedAnswers[questionIndex] === "false"}
                             disabled={!quizStarted}
                           />
                           <span
@@ -602,12 +630,22 @@ function QuizTake() {
                         <p className="submit">
                           Submitted Answer:{" "}
                           {selectedAnswers[question.questionText] !== undefined
+                            ? selectedAnswers[question.questionText]
+                            : "Not submitted"}
+                        </p>
+                      )}
+                      {/*
+                     {quizSubmitted && (
+                        <p className="submit">
+                          Submitted Answer:{" "}
+                          {selectedAnswers[question.questionText] !== undefined
                             ? selectedAnswers[question.questionText] == 0
                               ? "True"
                               : "False"
                             : "Not submitted"}
                         </p>
                       )}
+                    */}
                     </div>
                   ) : question.questionType === "essay" ? (
                     <div>
@@ -615,12 +653,7 @@ function QuizTake() {
                         questionIndex + 1
                       }. ${question.questionText}`}</p>
                       <p>{`Instructions: ${question.essayInstructions}`}</p>
-                      <textarea
-                        placeholder="Your answer"
-                        value={essayAnswer}
-                        onChange={(e) => setEssayAnswer(e.target.value)}
-                        disabled={!quizStarted}
-                      />
+
                       <label>
                         Attach File:
                         <input
@@ -631,12 +664,6 @@ function QuizTake() {
                       </label>
 
                       {renderEssayFileLink(submittedFile)}
-
-                      {quizSubmitted && (
-                        <p className="submit">
-                          Submitted Answer: {essayAnswer || "Not submitted"}
-                        </p>
-                      )}
                     </div>
                   ) : (
                     <p>{question.questionText}</p>
